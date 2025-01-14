@@ -1,0 +1,54 @@
+""" Shawn is planning for his younger sister's college education and wants to ensure she has enough funds when the time comes. He starts with an initial principal amount and plans to make regular monthly contributions to a savings account that offers a fixed annual interest rate. 
+
+
+
+Shawn needs to calculate the total amount that will accumulate by the time his sister is ready for college. Your task is to write a program that calculates the final amount in the savings account based on the initial principal, monthly contributions, annual interest rate, and the number of months the money is invested.
+
+
+
+Formula:
+
+To calculate the amount of the initial principal using compound interest:
+
+A1 = P x (1+rn)n×t
+
+To calculate the amount from the monthly contributions:
+
+A2 = Monthly contribution x (1+(rn)n×t−1)rn
+
+where,
+
+P is the principal amount.
+
+r is the annual interest rate as a decimal.
+
+n is the number of compounding periods per year (12).
+
+t is the total duration in years.
+
+Input format :
+The first line of input consists of a float P, representing the initial principal amount.
+
+The second line of input consists of a float R, representing the annual interest rate (in percentage).
+
+The third line of input consists of a float C, representing the monthly contribution.
+
+The fourth line of input consists of an integer M, representing the number of months.
+
+Output format :
+The output displays "Final amount after X months: Rs." followed by the total accumulated amount, formatted to two decimal places, where X is the number of months."""
+
+# You are using Python
+principle = float(input())
+rate = float(input())
+monthly = float(input())
+months = int(input())
+
+P = float(principle)
+r = rate / 100
+n = 12
+t = months / 12
+
+A = P * (1+ r / n ) ** (n * t) + monthly *(((1 + r / n) ** (n * t) - 1) / (r / n))
+
+print(f"Final amount after {months} months: Rs.{A:.2f}")
